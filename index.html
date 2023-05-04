@@ -85,6 +85,17 @@
     <three style="display:flex;flex-direction:column;">
       <button type="button" onclick="alert('你好，欢迎来到我的网页')">点我!</button>
       <p>你们肯定<del>不</del><i>喜欢</i>我的网页吧!!</p>
+      <div>点赞支持一下呗</div>
+    <button id="dzs" onclick="dz()">0</button>
+      <script>
+        function dz(){
+          let dzsbq = window.document.getElementById('dzs');
+          let dianzs = parseInt(dzsbq.innerText)
+          let xsz = dianzs +1
+          dzsbq.innerText = xsz;
+          return
+        }
+      </script>
     </three>
     <four
       style="
