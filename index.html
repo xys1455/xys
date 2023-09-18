@@ -191,6 +191,31 @@
             display: block;
             transform: translate(-2px,-2px);
         }
+        .form-input {
+            width: 300px;
+            margin: 60px auto;
+        }
+        @keyframes shake {
+            0%{
+                margin-left: 0;
+            }
+            25%{
+                margin-left: 0.5rem;
+            }
+            50%{
+                margin-left: 0;
+            }
+            75%{
+                margin-left: -0.5rem;
+            }
+            100%{
+                margin-left: 0;
+            }
+        }
+        input:invalid{
+            color: red;
+            animation: shake 0.2s ease-in-out;
+        }
     </style>
 </head>
 
@@ -248,6 +273,7 @@
       </div>
     </two>
     <three style="display:flex;flex-direction:column;">
+      <h5><bdo dir="rtl">这句话是从右往左的</bdo></h5>
       <button type="button" onclick="alert('你好，欢迎来到我的网页')">点我!</button>
       <p>你们肯定<del>不</del><i>喜欢</i>我的网页吧!!</p>
       <div>点赞支持一下呗</div>
@@ -262,6 +288,9 @@
         }
       </script>
     </three>
+    <div class="from-input">
+        <input type="text" placeholder="请输入数字" pattern="[0-9]*">
+    </div>
     <four
       style="
         height: 150px;
