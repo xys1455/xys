@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>闹钟</title>
+    <style>
+    *{
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        box-sizing: border-box;
+    }
+    body{
+        background-color: black;
+    }
+    .clearfix::after{
+        content: "";
+        display: block;
+        clear: both;
+    }
+    .pull-left{
+        float: left;
+    }
+    .pull-right{
+        float: right;
+    }
+    .clock-wrap{
+        position: relative;
+        padding: 20px;
+        font-size: 28px;
+        color: white;
+        font-weight: bold;
+    }
+    .add{
+        color: rgb(252,164,0);
+    }
+    .clock{
+        position: absolute;
+        right: 20px;
+        height: 40px;
+        opacity: 0;
+    }
+    .clock-list{
+        padding: 0 20px;
+        color: #ccc;
+    }
+    .clock-item{
+        width: 100%;
+        height: 60px;
+        line-height: 60px;
+        border-bottom: 1px solid #ccc;
+        font-size: 18px;
+        color: rgb(252,164,0);
+    }
+    .clock-item{
+        width: 100%;
+        height: 60px;
+        line-height: 60px;
+        border-bottom: 1px solid #ccc;
+        font-size: 18px;
+        color: rgb(252,164,0);
+    }
+    .clock-item.active span:last-child{
+        animation: ani 1s linear infinite;
+        color: red;
+    }
+    @keyframes ani {
+        0%{
+            transform: scale(1);
+        }
+        50%{
+            transform: scale(1.3);
+        }
+        100%{
+            transform: scale(1);
+        }
+    }
+    </style>
+</head>
+<body>
+    <p class="clock-wrap">
+        <span>闹钟</span>
+        <span class="add pull-right">+</span>
+        <input type="time" class="clock" onblur="add(this)">
+    </p>
+    <ul class="clock-list">
+        <li class="clock-item">
+            <span class="pull-left">时间</span>
+            <span class="pull-right">20:00</span>
+        </li>
+    </ul>
+    <audio src="audio/naoling.mp3" class="audio"></audio>
+    <script>
+        let audio = document.querySelector('.audio');
+        function add (el) {
+            let val = el.value;
+            if (val) {
+                let li = `<li class="clock-item">
+            <span class="pull-left">时间</span>
+            <span class="pull-right">${val}</span>
+        </li>`
+        document.querySelector('.clock-list').innerHTML += li;
+            }
+        }
+        function Count () {
+            let timer = setInterval(function () {
+                let date = new Date();
+                let hours = date.getHours();
+                let minutes = date.getMinutes();
+                let time = hours + ':' + minutes;
+                
+                let el = document.querySelectorAll('.clock-item');
+
+                if (el.length) {
+                    for (let i = 0;i < el.length;i++) {
+                        if (time === el[i].children[1].innerHTML) {
+                            audio.play();
+                            el[i].classList.add('active');
+                        }
+
+                        el[i].onclick = function () {
+                            if (this.classList.contains('active')) {
+                                clearInterval(timer);
+                                this.classList.remove('active');
+                                audio.pause();
+                                let seconds = date.getSeconds();
+                                setTimeout(Count,(60 - seconds) * 1000);
+                            }
+                        }
+                    }
+                }
+            }, 1000);
+        }
+        
+        Count();
+    </script>
+</body>
+</html>
