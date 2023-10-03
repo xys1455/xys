@@ -2,246 +2,277 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Put your description here.">
-    <title>我的第一个网站</title>
-    <link rel="stylesheet" type="text/css" href="index.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            list-style: none;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Put your description here.">
+  <title>我的第一个网站</title>
+  <link rel="stylesheet" type="text/css" href="index.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      box-sizing: border-box;
+    }
 
-        body {
-            display: flex;
-            border: 5px solid #35947e;
-            padding: 10px;
-            flex-direction: column;
-            align-items: center;
-        }
+    body {
+      display: flex;
+      border: 5px solid #35947e;
+      padding: 10px;
+      flex-direction: column;
+      align-items: center;
+    }
 
-        .clocks-wrap {
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            margin: auto;
-            width: 300px;
-            height: 300px;
-        }
+    .clocks-wrap {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+      width: 300px;
+      height: 300px;
+    }
 
-        .ribbon {
-            content: "";
-            display: block;
-            width: 50%;
-            height: 100%;
-            border-radius: 300px 0 0 300px;
-            background-image: linear-gradient(#ff1efe, #5547fd, #3a4b99, #181f4b);
-            transform-origin: right center;
-            z-index: -1;
-        }
+    .ribbon {
+      content: "";
+      display: block;
+      width: 50%;
+      height: 100%;
+      border-radius: 300px 0 0 300px;
+      background-image: linear-gradient(#ff1efe, #5547fd, #3a4b99, #181f4b);
+      transform-origin: right center;
+      z-index: -1;
+    }
 
-        .dark {
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            margin: auto;
-            content: "";
-            display: block;
-            width: 96%;
-            height: 96%;
-            border-radius: 50%;
-            background-color: #181f4b;
-        }
+    .dar {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+      content: "";
+      display: block;
+      width: 96%;
+      height: 96%;
+      border-radius: 50%;
+      background-color: #181f4b;
+    }
 
-        .lid {
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            margin: auto;
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background-color: white;
-            z-index: 1;
-        }
+    .lid {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: white;
+      z-index: 1;
+    }
 
-        .line {
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            margin: auto;
-            width: 1px;
-            height: 101%;
-            /* background-color: red; */
-        }
+    .line {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+      width: 1px;
+      height: 101%;
+      /* background-color: red; */
+    }
 
-        .line::after {
-            position: absolute;
-            content: "";
-            display: block;
-            width: 100%;
-            height: 20px;
-            background-color: #5c799c;
-        }
+    .line::after {
+      position: absolute;
+      content: "";
+      display: block;
+      width: 100%;
+      height: 20px;
+      background-color: #5c799c;
+    }
 
-        .line::before {
-            position: absolute;
-            bottom: 0;
-            content: "";
-            display: block;
-            width: 100%;
-            height: 20px;
-            background-color: #5c799c;
-        }
+    .line::before {
+      position: absolute;
+      bottom: 0;
+      content: "";
+      display: block;
+      width: 100%;
+      height: 20px;
+      background-color: #5c799c;
+    }
 
-        .line:nth-child(2) {
-            transform: rotate(30deg);
-        }
+    .line:nth-child(2) {
+      transform: rotate(30deg);
+    }
 
-        .line:nth-child(3) {
-            transform: rotate(60deg);
-        }
+    .line:nth-child(3) {
+      transform: rotate(60deg);
+    }
 
-        .line:nth-child(4) {
-            transform: rotate(90deg);
-        }
+    .line:nth-child(4) {
+      transform: rotate(90deg);
+    }
 
-        .line:nth-child(5) {
-            transform: rotate(120deg);
-        }
+    .line:nth-child(5) {
+      transform: rotate(120deg);
+    }
 
-        .line:nth-child(6) {
-            transform: rotate(150deg);
-        }
+    .line:nth-child(6) {
+      transform: rotate(150deg);
+    }
 
-        .line.big {
-            width: 3px;
-        }
+    .line.big {
+      width: 3px;
+    }
 
-        .line.big::after {
-            background-color: #5953f2;
-        }
+    .line.big::after {
+      background-color: #5953f2;
+    }
 
-        .line.big::before {
-            background-color: #5953f2;
-        }
+    .line.big::before {
+      background-color: #5953f2;
+    }
 
-        .hour {
-            position: absolute;
-            top: 40px;
-            left: 0;
-            right: 0;
-            width: 4px;
-            height: calc(50% - 40px);
-            margin: auto;
-            background-color: #d2d1db;
-            transform-origin: bottom;
-        }
+    .hour {
+      position: absolute;
+      top: 40px;
+      left: 0;
+      right: 0;
+      width: 4px;
+      height: calc(50% - 40px);
+      margin: auto;
+      background-color: #d2d1db;
+      transform-origin: bottom;
+    }
 
-        .minute {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            margin: auto;
-            width: 4px;
-            height: 50%;
-            margin: auto;
-            background-color: #d2d1db;
-            transform-origin: bottom;
-        }
+    .minute {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+      width: 4px;
+      height: 50%;
+      margin: auto;
+      background-color: #d2d1db;
+      transform-origin: bottom;
+    }
 
-        .second {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            margin: auto;
-            width: 3px;
-            height: 50%;
-            margin: auto;
-            background-color: #8c8ca5;
-            transform-origin: center bottom;
-        }
+    .second {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+      width: 3px;
+      height: 50%;
+      margin: auto;
+      background-color: #8c8ca5;
+      transform-origin: center bottom;
+    }
 
-        .second::after {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            margin: auto;
-            width: 7px;
-            height: 7px;
-            background-color: #fff4ff;
-            border-radius: 50%;
-            box-shadow: 0 0 10px 8px #fff4ff;
-            content: "";
-            display: block;
-            transform: translate(-2px,-2px);
-        }
-        .form-input {
-            width: 300px;
-            margin: 60px auto;
-        }
-        @keyframes shake {
-            0%{
-                margin-left: 0;
-            }
-            25%{
-                margin-left: 0.5rem;
-            }
-            50%{
-                margin-left: 0;
-            }
-            75%{
-                margin-left: -0.5rem;
-            }
-            100%{
-                margin-left: 0;
-            }
-        }
-        input:invalid{
-            color: red;
-            animation: shake 0.2s ease-in-out;
-        }
-    </style>
+    .second::after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+      width: 7px;
+      height: 7px;
+      background-color: #fff4ff;
+      border-radius: 50%;
+      box-shadow: 0 0 10px 8px #fff4ff;
+      content: "";
+      display: block;
+      transform: translate(-2px, -2px);
+    }
+
+    .form-input {
+      width: 300px;
+      margin: 60px auto;
+    }
+
+    @keyframes shake {
+      0% {
+        margin-left: 0;
+      }
+
+      25% {
+        margin-left: 0.5rem;
+      }
+
+      50% {
+        margin-left: 0;
+      }
+
+      75% {
+        margin-left: -0.5rem;
+      }
+
+      100% {
+        margin-left: 0;
+      }
+    }
+
+    input:invalid {
+      color: red;
+      animation: shake 0.2s ease-in-out;
+    }
+
+    :root {
+      --bg-color: #fff;
+      --button-color: #efefef;
+      --text-color: #606060;
+    }
+
+    html.dark {
+      --bg-color: #000;
+      --button-color: #808080;
+      --text-color: #fff;
+    }
+
+    html,
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+    }
+
+    .button {
+      border: 0;
+      border-radius: 10px;
+      background-color: var(--button-color);
+      color: var(--text-color);
+      padding: 10px 20px;
+      cursor: pointer;
+      margin: 10px 0;
+    }
+
+    five {
+      font-weight: 600;
+      font-size: 30px;
+      margin: 20px 0;
+    }
+  </style>
 </head>
 
 <body>
-    <one
-      style="
+  <one style="
         width: 100%;
         height: 130px;
         background-color: #9e9e9e52;
         display: flex;
         align-items: center;
         justify-content: center;
-      "
-    >
-      <img
-        src="./shenshu.png"
-        alt="头像"
-        width="100"
-        height="100"
-        style="display: block"
-        title="this is my profile photo"
-      />
-    </one>
-    <div style="height: 300px;"></div>
-    <two
-      style="
+      ">
+    <img src="shenshu.png" alt="头像" width="100" height="100" style="display: block" title="this is my profile photo" />
+  </one>
+  <div style="height: 300px;"></div>
+  <two style="
         width: 90%;
         display: flex;
         padding: 10px;
@@ -251,48 +282,58 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-      "
-    >
-      <em id="one" style="display: block; font-weight: 900">
-        xys
-      </em>
-      <div
-        style="
+      ">
+    <em id="one" style="display: block; font-weight: 900">
+      xys
+    </em>
+    <div style="
           color: red;
           display: flex;
           flex-direction: column;
           justify-content: center;
           align-items: center;
-        "
-      >
-        <p style="color: blue; width: 250px; height: 10px; font-size: 1em">
-          你好
-        </p>
-        <h1>这是<b>我的<ins>第一个</ins></b>网页</h1>
-        <p class="xyg">希望<br>与大家</br>共同成长</p>
-      </div>
-    </two>
-    <three style="display:flex;flex-direction:column;">
-      <h5><bdo dir="rtl">这句话是从右往左的</bdo></h5>
-      <button type="button" onclick="alert('你好，欢迎来到我的网页')">点我!</button>
-      <p>你们肯定<del>不</del><i>喜欢</i>我的网页吧!!</p>
-      <div>点赞支持一下呗</div>
-    <button id="dzs" onclick="dz()">0</button>
-      <script>
-        function dz(){
-          let dzsbq = window.document.getElementById('dzs');
-          let dianzs = parseInt(dzsbq.innerText)
-          let xsz = dianzs +1
-          dzsbq.innerText = xsz;
-          return
-        }
-      </script>
-    </three>
-    <div class="from-input">
-        <input type="text" placeholder="请输入数字" pattern="[0-9]*">
+        ">
+      <p style="color: blue; width: 250px; height: 10px; font-size: 1em">
+        你好
+      </p>
+      <h1>这是<b>我的<ins>第一个</ins></b>网页</h1>
+      <p class="xyg">希望<br>与大家</br>共同成长</p>
     </div>
-    <four
-      style="
+  </two>
+  <three style="display:flex;flex-direction:column;">
+    <h5><bdo dir="rtl">这句话是从右往左的</bdo></h5>
+    <button type="button" onclick="alert('你好，欢迎来到我的网页')">点我!</button>
+    <p>你们肯定<del>不</del><i>喜欢</i>我的网页吧!!</p>
+    <div>点赞支持一下呗</div>
+    <button id="dzs" onclick="dz()">0</button>
+    <script>
+      function dz() {
+        let dzsbq = window.document.getElementById('dzs');
+        let dianzs = parseInt(dzsbq.innerText)
+        let xsz = dianzs + 1
+        dzsbq.innerText = xsz;
+        return
+      }
+    </script>
+  </three>
+  <div class="from-input">
+    <input type="text" placeholder="请输入数字" pattern="[0-9]*">
+  </div>
+  <five></five>
+  <button class="button" id="dark" onclick="changeTheme('dark')">夜间模式</button>
+  <button class="button" id="light" onclick="changeTheme('light')">白天模式</button>
+  <script>
+    const five = document.querySelector("five");
+    let currentTheme = "";
+    const changeTheme = (value) => {
+      if (value === currentTheme) return;
+      currentTheme = value;
+      document.documentElement.setAttribute("class", value);
+      five.innerText = value === "dark" ? "当前为夜间模式" : "当前为白天模式";
+    };
+    changeTheme("light");
+  </script>
+  <four style="
         height: 150px;
         width: 100%;
         background-color: #eee;
@@ -300,48 +341,48 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-      "
-    >
-      <p>版权</p>
-      <p>备案号</p>
-      <a href="https://xys1455.github.io/xys1/">我的第二个网址</a>
+      ">
+    <p>版权</p>
+    <p>备案号</p>
+    <a href="https://xys1455.github.io/xys1/">我的第二个网址</a>
   </four>
-    <div style="background-color: #181f4b;" class="clocks-wrap">
-        <div class="ribbon"></div>
-        <div class="dark"></div>
-        <div class="lid"></div>
-        <div class="line-wrap">
-            <div class="line big"></div>
-            <div class="line"></div>
-            <div class="line"></div>
-            <div class="line big"></div>
-            <div class="line"></div>
-            <div class="line"></div>
-        </div>
-        <div class="hour"></div>
-        <div class="minute"></div>
-        <div class="second"></div>
+  <div style="background-color: #181f4b;" class="clocks-wrap">
+    <div class="ribbon"></div>
+    <div class="dar"></div>
+    <div class="lid"></div>
+    <div class="line-wrap">
+      <div class="line big"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line big"></div>
+      <div class="line"></div>
+      <div class="line"></div>
     </div>
-    <script>
-        let hl = document.querySelector('.hour');
-        let ml = document.querySelector('.minute');
-        let sl = document.querySelector('.second');
+    <div class="hour"></div>
+    <div class="minute"></div>
+    <div class="second"></div>
+  </div>
+  <script>
+    let hl = document.querySelector('.hour');
+    let ml = document.querySelector('.minute');
+    let sl = document.querySelector('.second');
 
-        let bg = document.querySelector('.ribbon');
-        function time() {
-            let date = new Date();
-            let inum = date.getMilliseconds();
-            let snum = date.getSeconds();
-            let mnum = date.getMinutes() + snum / 60;
-            let hnum = date.getHours() + mnum / 60;
+    let bg = document.querySelector('.ribbon');
+    function time() {
+      let date = new Date();
+      let inum = date.getMilliseconds();
+      let snum = date.getSeconds();
+      let mnum = date.getMinutes() + snum / 60;
+      let hnum = date.getHours() + mnum / 60;
 
-            bg.style.transform = `rotate(${snum * 6 + inum * 0.006}deg)`;
-            sl.style.transform = `rotate(${snum * 6 + inum * 0.006}deg)`;
-            ml.style.transform = `rotate(${mnum * 6}deg)`;
-            hl.style.transform = `rotate(${hnum * 30}deg)`;
-        }
+      bg.style.transform = `rotate(${snum * 6 + inum * 0.006}deg)`;
+      sl.style.transform = `rotate(${snum * 6 + inum * 0.006}deg)`;
+      ml.style.transform = `rotate(${mnum * 6}deg)`;
+      hl.style.transform = `rotate(${hnum * 30}deg)`;
+    }
 
-        setInterval(time, 30);
-    </script>
+    setInterval(time, 30);
+  </script>
 </body>
+
 </html>
